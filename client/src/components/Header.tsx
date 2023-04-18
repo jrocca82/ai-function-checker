@@ -9,8 +9,8 @@ const Header = () => (
     justifyContent="center"
     alignItems="center"
   >
-    <Heading>Solidity Function Optimizer</Heading>
-    <Text>Optimize the gas in your solidity functions with this tool.</Text>
+    <Heading>Function Translator</Heading>
+    <Text>Translate functions between different coding languages.</Text>
   </Flex>
 );
 
