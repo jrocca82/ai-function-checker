@@ -1,4 +1,4 @@
-import { Flex, Heading, Text } from "@chakra-ui/react";
+import { Flex, Heading, Image, Text } from "@chakra-ui/react";
 
 const Header = () => (
   <Flex
@@ -10,6 +10,17 @@ const Header = () => (
     alignItems="center"
     bgColor="#FFDE59"
   >
+    {" "}
+    <Image
+      src="FT.png"
+      position="absolute"
+      left={50}
+      height={50}
+      width={50}
+      alt="icon"
+      border="solid 1px black"
+      boxShadow="3px 3px grey"
+    />
     <Heading color="#00BF63">Function Translator</Heading>
     <Text color="black">
       Translate functions between different coding languages.

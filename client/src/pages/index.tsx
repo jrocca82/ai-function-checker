@@ -13,7 +13,7 @@ const Home = () => (
     color="white"
   >
     <Head>
-      <title>CodeAI</title>
+      <title>Function Translator</title>
     </Head>
     <Flex
       flexDirection="column"
