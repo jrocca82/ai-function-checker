@@ -6,6 +6,7 @@ import {
   Text,
   Box,
   Spinner,
+  Textarea,
 } from "@chakra-ui/react";
 import { ChevronRightIcon } from "@chakra-ui/icons";
 import { useState } from "react";
@@ -17,6 +18,7 @@ const Form = () => {
   const [apiOutput, setApiOutput] = useState<string>();
   const [isDetecting, setIsDetecting] = useState<boolean>(false);
   const [isChoosingRandom, setIsChoosingRandom] = useState<boolean>(false);
+  const [isConverting, setIsConverting] = useState<boolean>(false);
 
   const detectLanguage = async () => {
     setIsDetecting(true);
@@ -63,7 +65,7 @@ const Form = () => {
   };
 
   const convertFunction = async () => {
-    setIsDetecting(true);
+    setIsConverting(true);
 
     console.log("Calling OpenAI...");
     const response = await fetch("/api/convert-function", {
@@ -81,17 +83,26 @@ const Form = () => {
     console.log("OpenAI replied...", output.text);
 
     setApiOutput(`${output.text}`);
-    setIsDetecting(false);
+    setIsConverting(false);
   };
 
   return (
-    <Flex width="100%" justifyContent="space-evenly">
-      <Flex flexDirection="column">
-        <Heading size="sm">Enter code snippet:</Heading>
-        <Input
+    <Flex
+      width="100%"
+      paddingX="20px"
+      justifyContent="space-evenly"
+      flexDirection={{ base: "column", lg: "row" }}
+    >
+      <Flex flexDirection="column" alignItems="center" textAlign="left">
+        <Heading size="sm" width={{ base: "80%", lg: "500px" }} marginY="10px">
+          Enter code snippet:
+        </Heading>
+        <Textarea
           placeholder="Enter your function here"
           height="200px"
-          width="500px"
+          justifyContent="flex-start"
+          alignItems="flex-start"
+          width={{ base: "80%", lg: "500px" }}
           _placeholder={{ alignSelf: "flex-start" }}
           value={userInput}
           onChange={(e) => setUserInput(e.target.value)}
@@ -100,7 +111,7 @@ const Form = () => {
           width="100%"
           alignItems="center"
           justifyContent="center"
-          flexDirection="row"
+          flexDirection={{ base: "column", lg: "row" }}
           marginY="15px"
         >
           <Flex flexDirection="column" width="45%">
@@ -113,6 +124,7 @@ const Form = () => {
             <Button
               size="sm"
               bgColor="darkGrey"
+              isLoading={isDetecting}
               my="5px"
               onClick={() => detectLanguage()}
             >
@@ -120,7 +132,10 @@ const Form = () => {
             </Button>
           </Flex>
           <Box width="10%">
-            <ChevronRightIcon boxSize={50} />
+            <ChevronRightIcon
+              boxSize={50}
+              transform={{ base: "rotate(90deg)", lg: "auto" }}
+            />
           </Box>
 
           <Flex width="45%" flexDirection="column">
@@ -130,9 +145,10 @@ const Form = () => {
               value={secondaryLanguage}
               onChange={(e) => setSecondaryLanguage(e.target.value)}
             />
-             <Button
+            <Button
               size="sm"
               bgColor="darkGrey"
+              isLoading={isChoosingRandom}
               my="5px"
               onClick={() => randomLanguage()}
             >
@@ -140,7 +156,12 @@ const Form = () => {
             </Button>
           </Flex>
         </Flex>
-        <Button marginY="20px" bgColor="red" onClick={() => convertFunction()}>
+        <Button
+          marginY="20px"
+          isLoading={isConverting}
+          bgColor="red"
+          onClick={() => convertFunction()}
+        >
           Convert
         </Button>
       </Flex>

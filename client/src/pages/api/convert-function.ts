@@ -9,7 +9,7 @@ const configuration = new Configuration({
 const openai = new OpenAIApi(configuration);
 
 const handler = async (req: NextApiRequest, res: NextApiResponse<any>) => {
-  const prompt = `I am going to give you a function. This function is written in ${req.body.primaryLanguage}. Rewrite the function in ${req.body.secondaryLanguage}. Function: ${req.body.userInput}`;
+  const prompt = `I am going to give you a function. This function is written in ${req.body.primaryLanguage}. Rewrite the function in ${req.body.secondaryLanguage}. Use the correct syntax for ${req.body.secondaryLanguage}. Ignore comments. Function: ${req.body.userInput}`;
 
   const baseCompletion = await openai.createCompletion({
     model: "text-davinci-003",
