@@ -8,9 +8,12 @@ const Header = () => (
     width="100%"
     justifyContent="center"
     alignItems="center"
+    bgColor="#FFDE59"
   >
-    <Heading>Function Translator</Heading>
-    <Text>Translate functions between different coding languages.</Text>
+    <Heading color="#00BF63">Function Translator</Heading>
+    <Text color="black">
+      Translate functions between different coding languages.
+    </Text>
   </Flex>
 );
 

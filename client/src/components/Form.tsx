@@ -123,8 +123,9 @@ const Form = () => {
             />
             <Button
               size="sm"
-              bgColor="darkGrey"
+              bgColor="#FFDE59"
               isLoading={isDetecting}
+              color="black"
               my="5px"
               onClick={() => detectLanguage()}
             >
@@ -134,6 +135,7 @@ const Form = () => {
           <Box width="10%">
             <ChevronRightIcon
               boxSize={50}
+              color="#00BF63"
               transform={{ base: "rotate(90deg)", lg: "auto" }}
             />
           </Box>
@@ -147,7 +149,8 @@ const Form = () => {
             />
             <Button
               size="sm"
-              bgColor="darkGrey"
+              bgColor="#FFDE59"
+              color="black"
               isLoading={isChoosingRandom}
               my="5px"
               onClick={() => randomLanguage()}
@@ -159,7 +162,7 @@ const Form = () => {
         <Button
           marginY="20px"
           isLoading={isConverting}
-          bgColor="red"
+          bgColor="#00BF63"
           onClick={() => convertFunction()}
         >
           Convert
@@ -169,6 +172,10 @@ const Form = () => {
         flexDirection="column"
         alignContent="center"
         justifyContent="flex-start"
+        bgColor="#00BF63"
+        padding="10px"
+        borderRadius="20px"
+        color="black"
         width="30vw"
       >
         <Heading textDecor="underline" marginBottom="10px">
