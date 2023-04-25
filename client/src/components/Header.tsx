@@ -20,6 +20,7 @@ const Header = () => (
       alt="icon"
       border="solid 1px black"
       boxShadow="3px 3px grey"
+      display={{ base: "none", lg: "flex" }}
     />
     <Heading color="#00BF63">Function Translator</Heading>
     <Text color="black">

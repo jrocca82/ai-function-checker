@@ -24,10 +24,12 @@ const Home = () => (
     >
       <Header />
       <Form />
-      <Text>
+      <Text width="90%" my="20px" textAlign="center">
         Translate functions directly in your web browser with the{" "}
         <Text as="span" textDecor="underline">
-          <Link href="" target="_blank">Chrome Extension!</Link>
+          <Link href="" target="_blank">
+            Chrome Extension!
+          </Link>
         </Text>
       </Text>
       <Footer />

@@ -176,7 +176,7 @@ const Form = () => {
         padding="10px"
         borderRadius="20px"
         color="black"
-        width="30vw"
+        width={{base: "100%", lg: "30vw"}}
       >
         <Heading textDecor="underline" marginBottom="10px">
           Results:
