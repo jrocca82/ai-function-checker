@@ -27,7 +27,10 @@ const Home = () => (
       <Text width="90%" my="20px" textAlign="center">
         Translate functions directly in your web browser with the{" "}
         <Text as="span" textDecor="underline">
-          <Link href="" target="_blank">
+          <Link
+            href="https://chrome.google.com/webstore/detail/function-translator/gcnalhakmmggbakkdfdjkklkllehecol?hl=en&authuser=0"
+            target="_blank"
+          >
             Chrome Extension!
           </Link>
         </Text>
